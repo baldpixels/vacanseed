@@ -1,0 +1,6 @@
+<h3>Edit a Lot...</h3>
+
+<form action="/lots/<%= lot.id %>edit" method="POST">
+  <%- include('_form_fields.ejs') %>
+  <button type="submit">Update</button>
+</form>

@@ -1,13 +1,12 @@
-<h2>Search Lots</h2>
-<form action="/lots" method="GET">
-  <label>Zip Code</label>
-  <input type="number" name="zipcode" value="<%= searchOptions.zipcode %>"/>
-  <button type="submit">Search</button>
-</form>
-<br />
+<h3>Queried Lots...</h3>
+
 <% lots.forEach(lot => { %>
+  <div><%= lot %></div>
+  <form action="/lots/<%= lot.id %>/delete" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+  <form action="/lots/<%= lot.id %>/edit" method="GET">
+    <button type="submit">Edit</button>
+  </form>
   <br />
-  <p>Lot Size: <%= lot.size %> acres</p>
-  <p>Vacant? <%= lot.vacant ? "Yes" : "No"%></p>
-  <p>Lot Address: <%= lot.address %></p>
 <% }) %>
